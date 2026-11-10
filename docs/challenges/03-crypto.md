@@ -8,7 +8,7 @@ An API endpoint synchronously runs expensive PBKDF2 and blocks the JavaScript ev
 
 ## Reproduce
 
-Start the API with `pnpm --filter @lab/api dev`. Compare GET `/health` responsiveness while invoking POST `/crypto/hash` with JSON `{"password":"example"}`. Unlock and run the lab test.
+Start the API with `npm run dev --workspace=@lab/api`. Compare GET `/health` responsiveness while invoking POST `/crypto/hash` with JSON `{"password":"example"}`. Unlock and run the lab test.
 
 ## Implement
 
