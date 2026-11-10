@@ -8,16 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.17.0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          # Dependency cache is disabled until a lockfile is committed.
-      - run: pnpm install --no-frozen-lockfile
-      - run: pnpm test
-      - run: pnpm typecheck
-      - run: pnpm build
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
       # Challenge suites use describe.skip until the learner activates them.
       # CI checks the scaffold, not whether the learner has solved every lab.
