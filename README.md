@@ -6,7 +6,7 @@ This repository is designed for learning by **reproducing a problem, writing or 
 
 ## Prerequisites
 
-- Node.js 22 or newer; Corepack and pnpm 10
+- Node.js 22 or newer; npm 10
 - Docker Desktop / a compatible Docker Engine for the PostgreSQL lab
 - Git and a code editor
 
@@ -15,16 +15,15 @@ This repository is designed for learning by **reproducing a problem, writing or 
 ```bash
 git clone https://github.com/Thavarshan/next-node.git
 cd next-node
-corepack enable
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 You will find:
 
 - Next.js web lab: http://localhost:3000
 - Express API health check: http://127.0.0.1:4000/health
-- Optional PostgreSQL lab: `pnpm db:up` (localhost port 5433)
+- Optional PostgreSQL lab: `npm run db:up` (localhost port 5433)
 
 
 ## Workspace map
@@ -71,15 +70,15 @@ Initially, each challenge suite starts with `describe.skip(...)`. This makes sca
 2. Change only that challenge's `describe.skip` to `describe`.
 3. Run the relevant package's tests; **confirm at least one test fails**.
 4. Implement a fix without deleting or weakening the assertions.
-5. Run the tests again, then run `pnpm test` and `pnpm typecheck`.
+5. Run the tests again, then run `npm test` and `npm run typecheck`.
 6. Record what you changed and any measured results in the issue or a PR.
 
 ```bash
-pnpm --filter @lab/web test
-pnpm --filter @lab/api test
-pnpm --filter @lab/database test
-pnpm test
-pnpm typecheck
+npm run test --workspace=@lab/web
+npm run test --workspace=@lab/api
+npm run test --workspace=@lab/database
+npm test
+npm run typecheck
 ```
 
 A CI-green starter does **not** mean all labs are solved. The intentionally skipped tests become active when you work on them.

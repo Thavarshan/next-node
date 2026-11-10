@@ -2,9 +2,10 @@
   "name": "next-node-learning-lab",
   "private": true,
   "version": "0.1.0",
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "npm@10.9.2",
   "engines": {
-    "node": ">=22"
+    "node": ">=22",
+    "npm": ">=10"
   },
   "scripts": {
     "dev": "turbo run dev",
@@ -19,5 +20,9 @@
   "devDependencies": {
     "turbo": "^2.6.0",
     "typescript": "^5.9.0"
-  }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

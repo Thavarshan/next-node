@@ -9,15 +9,15 @@ A selective query joins `users.id` to `orders.user_id`, but orders have no index
 ## Reproduce
 
 1. Install/start Docker.
-2. Run `pnpm db:up`, then `pnpm db:seed`. If Postgres is still initializing, wait for its health check and retry.
-3. Run `pnpm db:explain`; record **actual time**, row counts and buffer reads.
+2. Run `npm run db:up`, then `npm run db:seed`. If Postgres is still initializing, wait for its health check and retry.
+3. Run `npm run db:explain`; record **actual time**, row counts and buffer reads.
 4. Unlock the migration test and see it fail.
 
 ## Implement
 
 1. Add a named index targeting the foreign-key join key to the migration SQL.
 2. Apply it: `docker compose -f packages/database/compose.yaml exec -T postgres psql -U lab -d lab < packages/database/migrations/001_orders_user_id.sql`.
-3. Run `pnpm db:explain` again.
+3. Run `npm run db:explain` again.
 4. Compare query plans and measurements; note when Postgres still prefers a sequential scan.
 5. Add a second query with no selective `WHERE` clause. Explain why an index might *not* help it.
 
@@ -29,4 +29,4 @@ A selective query joins `users.id` to `orders.user_id`, but orders have no index
 
 ## Note
 
-Fixture has 20k users and 200k orders to run comfortably on laptops; the original quiz has 1m/10m. Scale carefully if you have spare RAM/disk. To reset schema, run `pnpm db:down` then `pnpm db:up` (this compose setup uses ephemeral data).
+Fixture has 20k users and 200k orders to run comfortably on laptops; the original quiz has 1m/10m. Scale carefully if you have spare RAM/disk. To reset schema, run `npm run db:down` then `npm run db:up` (this compose setup uses ephemeral data).
