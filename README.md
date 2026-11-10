@@ -20,18 +20,12 @@ pnpm install
 pnpm dev
 ```
 
-Once this feature branch is merged, you will find:
+You will find:
 
 - Next.js web lab: http://localhost:3000
 - Express API health check: http://127.0.0.1:4000/health
 - Optional PostgreSQL lab: `pnpm db:up` (localhost port 5433)
 
-To explore the PR **before merging**, check out the PR feature branch instead of `main`:
-
-```bash
-git fetch origin feat/turborepo-learning-labs
-git switch feat/turborepo-learning-labs
-```
 
 ## Workspace map
 
