@@ -19,18 +19,18 @@ Each lesson has a **reproduce** step, **change** guidance, **tests**, a **manual
 ## Helpful commands
 
 ```bash
-pnpm dev                   # starts Next.js + Express
-pnpm --filter @lab/web test
-pnpm --filter @lab/api test
-pnpm --filter @lab/database test
-pnpm typecheck
-pnpm db:up                 # Docker only
-pnpm db:seed
-pnpm db:explain
-pnpm db:down
+npm run dev                   # starts Next.js + Express
+npm run test --workspace=@lab/web
+npm run test --workspace=@lab/api
+npm run test --workspace=@lab/database
+npm run typecheck
+npm run db:up                 # Docker only
+npm run db:seed
+npm run db:explain
+npm run db:down
 ```
 
-To check one test by name, use `pnpm --filter @lab/web exec vitest run src/tests/02-memo.challenge.test.tsx` (after unlocking it).
+To check one test by name, use `npm exec --workspace=@lab/web -- vitest run src/tests/02-memo.challenge.test.tsx` (after unlocking it).
 
 ## Submit evidence, not just code
 
