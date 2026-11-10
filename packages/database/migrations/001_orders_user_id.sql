@@ -1,0 +1,3 @@
+-- LAB 05
+-- TODO: Add an appropriate index for the selective orders.user_id JOIN.
+-- Write your CREATE INDEX statement below, then rerun EXPLAIN.
