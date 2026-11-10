@@ -1,0 +1,23 @@
+{
+  "name": "next-node-learning-lab",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.17.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "db:up": "docker compose -f packages/database/compose.yaml up -d",
+    "db:down": "docker compose -f packages/database/compose.yaml down",
+    "db:seed": "docker compose -f packages/database/compose.yaml exec -T postgres psql -U lab -d lab < packages/database/sql/seed.sql",
+    "db:explain": "docker compose -f packages/database/compose.yaml exec -T postgres psql -U lab -d lab < packages/database/sql/explain.sql"
+  },
+  "devDependencies": {
+    "turbo": "^2.6.0",
+    "typescript": "^5.9.0"
+  }
+}
