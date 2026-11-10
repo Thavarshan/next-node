@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
-const page = readFileSync(new URL("../app/products/page.tsx", import.meta.url), "utf8");
+const page = readFileSync(resolve(process.cwd(), "src/app/products/page.tsx"), "utf8");
 
 describe.skip("Lab 01: hourly ISR", () => {
   it("revalidates the product route every 3600 seconds", () => {
